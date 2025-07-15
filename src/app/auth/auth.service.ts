@@ -62,4 +62,10 @@ export class AuthService {
       .toPromise();
   }
 
+  // src/app/auth/auth.service.ts
+  register(email: string, password: string, name: string) {
+    return this.http
+      .post<User>(`${this.apiUrl}/users`, { email, password, name })
+      .toPromise();
+  }
 }
