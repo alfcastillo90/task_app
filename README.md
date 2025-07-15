@@ -1,59 +1,41 @@
-# TaskApp
+# TaskApp Fullstack Challenge
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0.
+Aplicación de gestión de tareas con **Angular 20** en el frontend y **Firebase Functions + Firestore** en el backend, siguiendo arquitectura hexagonal y buenas prácticas.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📋 Contenidos
 
-```bash
-ng serve
-```
+- [Requisitos](#-requisitos)  
+- [Variables de entorno](#-variables-de-entorno)  
+- [Instalación y arranque](#-instalación-y-arranque)  
+  - Backend  
+  - Frontend  
+- [Logout y Refresh de token](#-logout-y-refresh-de-token)  
+- [Listado de endpoints](#-listado-de-endpoints)  
+- [Tests](#-tests)  
+- [Despliegue](#-despliegue)  
+- [Notas](#-notas)  
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🔧 Requisitos
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- **Node.js** ≥ 18  
+- **npm** ≥ 9  
+- **Angular CLI** ≥ 16  
+- **Firebase CLI**  
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 🔑 Variables de entorno
 
-```bash
-ng generate --help
-```
+### Backend (`functions/.env`)
 
-## Building
+```ini
+# Ruta al JSON de service account de Firebase Admin
+JSON_SECRET=/home/ccastillo/firebase/task-app-chile-001-firebase-adminsdk-XXX.json
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+# Secretos para firmar JWT
+ACCESS_TOKEN_SECRET=una_clave_secreta_jwt
+REFRESH_TOKEN_SECRET=otra_clave_secreta
