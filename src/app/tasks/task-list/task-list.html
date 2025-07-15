@@ -18,7 +18,7 @@
       <mat-card-header>
         <mat-checkbox
           [checked]="task.completed"
-          (change)="onUpdate({ ...task, completed: $event.checked })"
+          (change)="onToggle(task, $event.checked)"
         >
           {{ task.title }}
         </mat-checkbox>

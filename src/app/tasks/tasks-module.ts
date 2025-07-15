@@ -9,15 +9,13 @@ import { TaskForm } from './task-form/task-form';
 import { TasksRoutingModule } from './tasks-routing-module';
 
 @NgModule({
-  declarations: [
-    TaskList,
-    TaskForm
-  ],
   imports: [
     SharedModule,
     ReactiveFormsModule,
     HttpClientModule,
-    TasksRoutingModule
+    TasksRoutingModule,
+    TaskList,
+    TaskForm
   ]
 })
 export class TasksModule {}

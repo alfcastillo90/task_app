@@ -4,11 +4,19 @@ import { TaskService } from '../task.service';
 import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
 import { Task } from '../../shared/models/task.model';
+import { NgIf, NgFor } from '@angular/common';
+import { SharedModule } from '../../shared/shared.module';
 
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.html',
-  styleUrls: ['./task-list.scss']
+  styleUrls: ['./task-list.scss'],
+  standalone: true,
+   imports: [
+    SharedModule,         // aquí tienes MatIconModule, MatCardModule, MatButtonModule, etc.
+    NgIf,
+    NgFor
+  ],
 })
 export class TaskList implements OnInit {
   tasks: Task[] = [];
@@ -56,5 +64,31 @@ export class TaskList implements OnInit {
     }, () => {
       this.error = 'Error al eliminar la tarea.';
     });
+  }
+
+  onUpdate(updated: Task) {
+    this.taskService.update(updated.id, {
+      title:       updated.title,
+      description: updated.description,
+      completed:   updated.completed
+    }).subscribe({
+      next: task => {
+        // Refresca localmente el array
+        const i = this.tasks.findIndex(t => t.id === task.id);
+        if (i > -1) this.tasks[i] = task;
+      },
+      error: () => this.error = 'Error al actualizar la tarea.'
+    });
+  }
+
+  onToggle(task: Task, checked: boolean) {
+    // llama a onUpdate pasándole campos explícitos
+    this.onUpdate({
+      id: task.id,
+      title: task.title,
+      description: task.description,
+      checked: checked
+    } as unknown as Task
+    );
   }
 }
