@@ -1,4 +1,4 @@
-# TaskApp Fullstack Challenge
+# TaskApp
 
 Aplicación de gestión de tareas con **Angular 20** en el frontend y **Firebase Functions + Firestore** en el backend, siguiendo arquitectura hexagonal y buenas prácticas.
 
