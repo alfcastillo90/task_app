@@ -7,7 +7,9 @@ import { MatToolbarModule }   from '@angular/material/toolbar';
 import { MatButtonModule  }   from '@angular/material/button';
 import { MatInputModule   }   from '@angular/material/input';
 import { MatCardModule    }   from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';  // ← Añadido
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule }  from '@angular/material/checkbox';  // ← Nuevo
+import { MatIconModule }      from '@angular/material/icon';      // ← Nuevo
 
 @NgModule({
   imports: [
@@ -16,7 +18,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';  // ← Añad
     MatButtonModule,
     MatInputModule,
     MatCardModule,
-    MatFormFieldModule,   // ← Aquí
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatIconModule,
   ],
   exports: [
     CommonModule,
@@ -24,7 +28,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';  // ← Añad
     MatButtonModule,
     MatInputModule,
     MatCardModule,
-    MatFormFieldModule,   // ← Y aquí
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatIconModule,
   ]
 })
 export class SharedModule {}
